@@ -1,0 +1,12 @@
+sudo: required
+
+#determine les services que l'on souhaite utiliser avec travis
+services:
+  - docker
+
+#Ensuite, dans notre setup, nous demandons l'exécution des commandes ci dessous nb:ndongofa=nom d'utilisateur Dockerhub node2=nom de projet
+script: 
+  - docker build -t ndongofa/node2 .
+  - docker images ndongofa/node2
+
+#En résumé nous utilisons le service docker pour ensuite exécuter les commandes du script sur travis. On créé l'image node2 puis on l'utile pour exécute notre test sur travis  
