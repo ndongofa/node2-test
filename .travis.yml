@@ -6,7 +6,18 @@ services:
 
 #Ensuite, dans notre setup, nous demandons l'exécution des commandes ci dessous nb:ndongofa=nom d'utilisateur Dockerhub node2=nom de projet
 script: 
-  - docker build -t ndongofa/node2 .
-  - docker images ndongofa/node2
+  - docker build -t ndongofa/node .
+  - docker images ndongofa/node
 
-#En résumé nous utilisons le service docker pour ensuite exécuter les commandes du script sur travis. On créé l'image node2 puis on l'utile pour exécute notre test sur travis  
+
+
+before_deploy:
+  - docker login -u ndongofa -p Ldmptn2012
+
+deploy: 
+  provider: script
+  script: docker push ndongofa/node2-test
+  on:
+  #la branche de github qu'onsouhaite publier dans Dockerhub
+    branch: main
+
