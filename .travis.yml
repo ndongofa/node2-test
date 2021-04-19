@@ -6,8 +6,8 @@ services:
 
 #Ensuite, dans notre setup, nous demandons l'exécution des commandes ci dessous nb:ndongofa=nom d'utilisateur Dockerhub node2=nom de projet
 script: 
-  - docker build -t ndongofa/node .
-  - docker images ndongofa/node
+  - docker build -t ndongofa/node2 .
+  - docker images ndongofa/node2
 
 
 
